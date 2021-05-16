@@ -1,5 +1,5 @@
-import 'package:authtemplate/components/text_field_container.dart';
-import 'package:authtemplate/constants.dart';
+import 'package:authtemplate/core/core.dart';
+
 import 'package:flutter/material.dart';
 
 class RoundedInputField extends StatelessWidget {
@@ -15,11 +15,16 @@ class RoundedInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldContainer(
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      decoration: BoxDecoration(
+        color: AppColors.kPrimaryLightColor,
+        borderRadius: BorderRadius.circular(29),
+      ),
       child: TextField(
         onChanged: onChanged,
         decoration: InputDecoration(
-          icon: Icon(icon, color: kPrimaryColor),
+          icon: Icon(icon, color: AppColors.kPrimaryColor),
           hintText: hintText,
           border: InputBorder.none,
         ),

@@ -1,3 +1,4 @@
+import 'package:authtemplate/core/core.dart';
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
@@ -10,10 +11,11 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    DeviceScreenSize dss = DeviceScreenSize(mediaQuery: MediaQuery.of(context));
+
     return Container(
       width: double.infinity,
-      height: size.height,
+      height: dss.displayHeight,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -22,7 +24,7 @@ class Background extends StatelessWidget {
             left: 0,
             child: Image.asset(
               "assets/images/main_top.png",
-              width: size.width * 0.35,
+              width: dss.displayWidth * 0.35,
             ),
           ),
           Positioned(
@@ -30,7 +32,7 @@ class Background extends StatelessWidget {
             right: 0,
             child: Image.asset(
               "assets/images/login_bottom.png",
-              width: size.width * 0.4,
+              width: dss.displayWidth * 0.4,
             ),
           ),
           child,

@@ -1,4 +1,4 @@
-import 'package:authtemplate/constants.dart';
+import 'package:authtemplate/core/core.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
@@ -10,7 +10,7 @@ class RoundedButton extends StatelessWidget {
     Key key,
     this.text = "",
     this.onPressed,
-    this.color = kPrimaryColor,
+    this.color = AppColors.kPrimaryColor,
     this.textColor = Colors.white,
   }) : super(key: key);
 
