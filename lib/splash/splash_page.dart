@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SplashPage extends StatefulWidget {
-  final double animationValue;
-
-  const SplashPage({Key key, @required this.animationValue}) : super(key: key);
+  const SplashPage({Key key}) : super(key: key);
   @override
   _SplashPageState createState() => _SplashPageState();
 }
@@ -15,10 +13,10 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3)).then((value) {
+    /* Future.delayed(Duration(seconds: 3)).then((value) {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => WelcomePage()));
-    });
+    }); */
 
     return Scaffold(
       body: Container(

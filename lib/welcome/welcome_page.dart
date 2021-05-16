@@ -36,7 +36,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: 50,
               ),
               RoundedButton(
-                text: "LOGIN",
+                child: Text("LOGIN"),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => LoginPage()));
@@ -46,7 +46,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: 20,
               ),
               RoundedButton(
-                text: "SIGN UP",
+                child: Text("SIGN UP"),
                 color: AppColors.kPrimaryLightColor,
                 textColor: Colors.black,
                 onPressed: () {},

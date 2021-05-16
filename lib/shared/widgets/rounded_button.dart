@@ -2,13 +2,13 @@ import 'package:authtemplate/core/core.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
-  final String text;
+  final Widget child;
   final VoidCallback onPressed;
   final Color color, textColor;
 
   const RoundedButton({
     Key key,
-    this.text = "",
+    this.child,
     this.onPressed,
     this.color = AppColors.kPrimaryColor,
     this.textColor = Colors.white,
@@ -35,9 +35,7 @@ class RoundedButton extends StatelessWidget {
           foregroundColor: MaterialStateProperty.all(this.textColor),
         ),
         onPressed: this.onPressed,
-        child: Text(
-          this.text,
-        ),
+        child: this.child,
       ),
     );
   }
