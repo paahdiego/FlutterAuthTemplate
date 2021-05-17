@@ -26,7 +26,7 @@
       </ul>
     </li>
     <li><a href="#installation">Installation</a></li>
-    <li><a href="#licença">Licença</a></li>
+    <li><a href="#license">License</a></li>
   </ol>
 </details>
 
@@ -35,8 +35,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
   <p align="center">
-  <img src=".github/welcome.png" alt="WelcomePage" height="300">
-  <img src=".github/error.png" alt="Login Error" height="300">
+  <img src=".github/welcome.png" alt="WelcomePage" height="500">
+  <img src=".github/error.png" alt="Login Error" height="500">
   </p>
   </br>
 
