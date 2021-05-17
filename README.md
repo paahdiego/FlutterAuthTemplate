@@ -61,11 +61,11 @@
 
 1. clone this repo.
    ```sh
-   git clone https://github.com/paahdiego/omnistack11.git    
+   git clone git@github.com:paahdiego/FlutterAuthTemplate.git    
    
    ou
    
-   git@github.com:paahdiego/omnistack11.git
+   git clone https://github.com/paahdiego/FlutterAuthTemplate.git
    ```
    
 2. install dependencies:
