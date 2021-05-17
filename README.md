@@ -1,16 +1,73 @@
-# authtemplate
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
 
-A new Flutter project.
+  <img src=".github/chat.svg" alt="Flutter Auth Template" width="200">
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+  <h3 align="center">Flutter Auth Template</h3>
 
-A few resources to get you started if this is your first Flutter project:
+  <p align="center">
+    teste
+    <br />
+  </p>
+</p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<!-- TABLE OF CONTENTS -->
+<details open="close">
+  <summary>Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About the project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#licença">Licença</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About the Project
+  <p align="center">
+  <img src=".github/bethehero.png" alt="Be The Hero" height="400">
+  </p>
+  </br>
+  Trata-se de uma plataforma que permite que ONGs criem seus cadastros e possam cadastrar casos que precisam de ajuda. O cadastro das ONGs e dos casos é feito pelo app web desenvolvido em ReactJS. O backend foi desenvolvido utilizando NodeJS e a aplicação mobile (iOS e Android) que serve para que usuários que queiram contribuir com essas ONGs através de doações monetárias, será desenvolvida em Flutter (Em Breve).
+
+### Built With
+
+* [Flutter](https://flutter.dev/)
+* [Dart](https://dart.dev/)
+
+## Installation
+
+1. clone this repo.
+   ```sh
+   git clone https://github.com/paahdiego/omnistack11.git    
+   
+   ou
+   
+   git@github.com:paahdiego/omnistack11.git
+   ```
+   
+2. install dependencies:
+ 
+   ```sh
+   flutter pub get
+   ```
+   
+3. run:
+   ```sh
+   flutter run
+   ```   
+   
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
