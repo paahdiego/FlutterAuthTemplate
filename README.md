@@ -2,13 +2,13 @@
 <br />
 <p align="center">
 
-  <img src=".github/chat.svg" alt="Flutter Auth Template" width="200">
+  <img src=".github/chat.svg" alt="Flutter Auth Template" width="160">
 
 
   <h3 align="center">Flutter Auth Template</h3>
 
   <p align="center">
-    teste
+    Flutter Auth Template is a Flutter sample app with an organized structure and app settings, pages state management and working jwt login model. 
     <br />
   </p>
 </p>
@@ -35,10 +35,22 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
   <p align="center">
-  <img src=".github/bethehero.png" alt="Be The Hero" height="400">
+  <img src=".github/welcome.png" alt="WelcomePage" height="300">
+  <img src=".github/error.png" alt="Login Error" height="300">
   </p>
   </br>
-  Trata-se de uma plataforma que permite que ONGs criem seus cadastros e possam cadastrar casos que precisam de ajuda. O cadastro das ONGs e dos casos é feito pelo app web desenvolvido em ReactJS. O backend foi desenvolvido utilizando NodeJS e a aplicação mobile (iOS e Android) que serve para que usuários que queiram contribuir com essas ONGs através de doações monetárias, será desenvolvida em Flutter (Em Breve).
+
+  Flutter Auth Template is a Flutter sample app with the following pages:
+  - Login Page
+  - SignUp Page
+  - Welcome Page
+  - Splash Page
+  - Home Page
+
+  It uses provider to keep track on actual app state and decides what to show on display.
+  
+  Login page has a functional jwt login model using flutter secure storage to keep jwt token.
+ 
 
 ### Built With
 
