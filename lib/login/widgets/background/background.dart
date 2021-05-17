@@ -11,7 +11,7 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DeviceScreenSize dss = DeviceScreenSize(mediaQuery: MediaQuery.of(context));
+    DeviceScreenSize dss = DeviceScreenSize(context);
 
     return Container(
       width: double.infinity,
@@ -35,7 +35,10 @@ class Background extends StatelessWidget {
               width: dss.displayWidth * 0.4,
             ),
           ),
-          child,
+          Padding(
+            padding: dss.safeAreaPadding,
+            child: child,
+          ),
         ],
       ),
     );

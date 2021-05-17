@@ -30,6 +30,7 @@ class RoundedInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DeviceScreenSize dss = DeviceScreenSize(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
@@ -44,7 +45,7 @@ class RoundedInputField extends StatelessWidget {
         keyboardType: keyboardType,
         onFieldSubmitted: onFieldSubmitted,
         textInputAction: textInputAction,
-        style: AppTextStyles.inputStyle(),
+        style: AppTextStyles.inputStyle(dss.defaultFontSize),
         decoration: InputDecoration(
           icon: Icon(icon, color: AppColors.kPrimaryColor),
           hintText: hintText,

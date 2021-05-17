@@ -59,7 +59,7 @@ class _RoundedButtonState extends State<RoundedButton>
 
   @override
   Widget build(BuildContext context) {
-    DeviceScreenSize dss = DeviceScreenSize(mediaQuery: MediaQuery.of(context));
+    DeviceScreenSize dss = DeviceScreenSize(context);
 
     return Container(
       width: dss.displayWidth * 0.8,

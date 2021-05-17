@@ -13,7 +13,7 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
-    DeviceScreenSize dss = DeviceScreenSize(mediaQuery: MediaQuery.of(context));
+    DeviceScreenSize dss = DeviceScreenSize(context);
 
     return Scaffold(
       body: Background(

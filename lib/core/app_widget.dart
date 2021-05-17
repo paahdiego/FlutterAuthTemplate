@@ -17,16 +17,17 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   void initState() {
     AppIcons.loadCache();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.blue));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-
     return MaterialApp(
       title: "AuthTemplate",
       debugShowCheckedModeBanner: false,

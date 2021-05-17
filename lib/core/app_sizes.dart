@@ -3,34 +3,47 @@ import 'package:flutter/material.dart';
 class DeviceScreenSize extends ChangeNotifier {
   double _displayWidth = 0;
   double _displayHeight = 0;
-  EdgeInsets _defaultPadding = EdgeInsets.symmetric(horizontal: 0);
+  EdgeInsets _defaultPadding = EdgeInsets.zero;
   double _defaultPaddingValue = 20;
+  double _defaultFontSize = 14;
+  double _paddingTop = 0;
+  double _paddingBottom = 0;
+  EdgeInsets _safeAreaPadding = EdgeInsets.zero;
 
-  final MediaQueryData mediaQuery;
+  final BuildContext context;
 
-  DeviceScreenSize({
-    required this.mediaQuery,
-  }) {
-    _displayWidth = this.mediaQuery.size.width;
-    _displayHeight = this.mediaQuery.size.height;
+  DeviceScreenSize(
+    this.context,
+  ) {
+    MediaQueryData _mediaQuery = MediaQuery.of(context);
+    _displayWidth = _mediaQuery.size.width;
+    _displayHeight = _mediaQuery.size.height;
+    _paddingTop = _mediaQuery.padding.top;
+    _paddingBottom = _mediaQuery.padding.bottom;
 
     if (_displayWidth >= 768) {
-      //iPad Pro 9.7 pol
       _defaultPaddingValue *= 2.0;
-      _defaultPadding = EdgeInsets.symmetric(horizontal: _defaultPaddingValue);
+
+      //iPad Pro 9.7 pol
     } else if (_displayWidth >= 375) {
+      _defaultPaddingValue *= 1.5;
+
       //iPhone 11 Pro - x pol 375
       //iPhone 12 - 6.1 pol 390
-      _defaultPaddingValue *= 1.5;
-      _defaultPadding = EdgeInsets.symmetric(horizontal: _defaultPaddingValue);
     } else {
       //iPhone SE 1st Gen.
-      _defaultPadding = EdgeInsets.symmetric(horizontal: _defaultPaddingValue);
     }
+    _defaultPadding = EdgeInsets.symmetric(horizontal: _defaultPaddingValue);
+    _safeAreaPadding =
+        EdgeInsets.only(top: _paddingTop, bottom: _paddingBottom);
   }
 
   double get displayWidth => this._displayWidth;
   double get displayHeight => this._displayHeight;
   EdgeInsets get defaultPadding => this._defaultPadding;
   double get defaultPaddingValue => this._defaultPaddingValue;
+  double get defaultFontSize => this._defaultFontSize;
+  double get paddingTop => this._paddingTop;
+  double get paddingBottom => this._paddingBottom;
+  EdgeInsets get safeAreaPadding => this._safeAreaPadding;
 }

@@ -10,7 +10,7 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DeviceScreenSize dss = DeviceScreenSize(mediaQuery: MediaQuery.of(context));
+    DeviceScreenSize dss = DeviceScreenSize(context);
 
     return Container(
       height: dss.displayHeight,
