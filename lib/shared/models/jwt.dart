@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class JWTToken {
   String? jwt;
 
@@ -5,9 +7,20 @@ class JWTToken {
     this.jwt,
   });
 
-  factory JWTToken.fromJson(Map<String, dynamic> json) {
+  Map<String, dynamic> toMap() {
+    return {
+      'jwt': jwt,
+    };
+  }
+
+  factory JWTToken.fromMap(Map<String, dynamic> map) {
     return JWTToken(
-      jwt: json["token"],
+      jwt: map['token'],
     );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory JWTToken.fromJson(String source) =>
+      JWTToken.fromMap(json.decode(source));
 }

@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:developer';
 
 import 'package:authtemplate/shared/config/connection.dart';
 import 'package:authtemplate/shared/controllers/auth.dart';
@@ -21,10 +21,10 @@ class AuthService {
     }
   }
 
-  /* Future<String> getToken() async {
+  Future<String?> getToken() async {
     final storage = new FlutterSecureStorage();
     return storage.read(key: 'jwt');
-  } */
+  }
 
   Future<UserModel> login(LoginModel credentials) async {
     Uri uri = getUri('login');
@@ -39,12 +39,12 @@ class AuthService {
 
       switch (response.statusCode) {
         case 200:
-          final responseJson = json.decode(response.body);
+          log(response.body);
 
           UserModel _user = UserModel.fromJson(response.body);
           print(_user.name);
 
-          JWTToken _token = JWTToken.fromJson(responseJson);
+          JWTToken _token = JWTToken.fromJson(response.body);
           print(3);
           return await setLocalUser(_user, _token);
 
@@ -61,47 +61,12 @@ class AuthService {
     }
   }
 
-  Future<String?> getUserName() async {
-    final storage = new FlutterSecureStorage();
-    return storage.read(key: "name");
-  }
-
-  Future<String?> getUserId() async {
-    final storage = new FlutterSecureStorage();
-    return storage.read(key: "userId");
-  }
-
-  Future<String?> getUserAvatar() async {
-    final storage = new FlutterSecureStorage();
-    return storage.read(key: "avatarUrl");
-  }
-
-  Future<String?> getUserEmail() async {
-    final storage = new FlutterSecureStorage();
-    return storage.read(key: "email");
-  }
-
   Future<UserModel> setLocalUser(UserModel user, JWTToken token) async {
     final storage = new FlutterSecureStorage();
 
     storage.delete(key: "jwt");
     storage.write(key: "jwt", value: token.jwt.toString());
-    Map<String, String> allValues = await storage.readAll();
-    print(allValues);
 
-    //await storage.delete(key: "userId");
-    /* await storage.write(key: "userId", value: user.userId.toString());
-    await storage.delete(key: "avatarUrl");
-    await storage.write(key: "avatarUrl", value: user.avatarUrl.toString());
-    await storage.delete(key: "email");
-    await storage.write(key: "email", value: user.email.toString());
-    await storage.delete(key: "name");
-    await storage.write(key: "name", value: user.name.toString());
-    await storage.delete(key: "companies");
-    await storage.write(key: "companies", value: user.companies.toString());
-    await storage.delete(key: "permissions");
-    await storage.write(key: "permissions", value: user.permissions.toString());
- */
     return user;
   }
 
