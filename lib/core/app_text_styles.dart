@@ -15,7 +15,7 @@ class AppTextStyles {
       );
   static TextStyle textButtonStyle({
     double size = 16,
-    FontWeight fontWeight = FontWeight.w400,
+    FontWeight fontWeight = FontWeight.w600,
   }) =>
       GoogleFonts.roboto(
         color: AppColors.kPrimaryColor,
@@ -28,6 +28,15 @@ class AppTextStyles {
   }) =>
       GoogleFonts.roboto(
         color: AppColors.white,
+        fontSize: size,
+        fontWeight: fontWeight,
+      );
+  static TextStyle body({
+    double size = 16,
+    FontWeight fontWeight = FontWeight.w400,
+  }) =>
+      GoogleFonts.roboto(
+        color: AppColors.black,
         fontSize: size,
         fontWeight: fontWeight,
       );

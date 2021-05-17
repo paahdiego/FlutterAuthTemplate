@@ -175,12 +175,21 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 5,
               ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "esqueci minha senha",
-                  style: AppTextStyles.textButtonStyle(),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an Account?",
+                    style: AppTextStyles.body(size: 14),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Sign up",
+                      style: AppTextStyles.textButtonStyle(size: 14),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
