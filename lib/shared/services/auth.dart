@@ -61,22 +61,22 @@ class AuthService {
     }
   }
 
-  Future<String> getUserName() async {
+  Future<String?> getUserName() async {
     final storage = new FlutterSecureStorage();
     return storage.read(key: "name");
   }
 
-  Future<String> getUserId() async {
+  Future<String?> getUserId() async {
     final storage = new FlutterSecureStorage();
     return storage.read(key: "userId");
   }
 
-  Future<String> getUserAvatar() async {
+  Future<String?> getUserAvatar() async {
     final storage = new FlutterSecureStorage();
     return storage.read(key: "avatarUrl");
   }
 
-  Future<String> getUserEmail() async {
+  Future<String?> getUserEmail() async {
     final storage = new FlutterSecureStorage();
     return storage.read(key: "email");
   }

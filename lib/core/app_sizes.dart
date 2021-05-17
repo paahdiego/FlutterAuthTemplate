@@ -9,7 +9,7 @@ class DeviceScreenSize extends ChangeNotifier {
   final MediaQueryData mediaQuery;
 
   DeviceScreenSize({
-    @required this.mediaQuery,
+    required this.mediaQuery,
   }) {
     _displayWidth = this.mediaQuery.size.width;
     _displayHeight = this.mediaQuery.size.height;

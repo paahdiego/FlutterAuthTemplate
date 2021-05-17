@@ -4,9 +4,9 @@ class BouncingEffect extends StatefulWidget {
   final Widget child;
   final double animationValue;
   BouncingEffect({
-    Key key,
-    @required this.child,
-    @required this.animationValue,
+    Key? key,
+    required this.child,
+    required this.animationValue,
   }) : super(key: key);
 
   @override
@@ -15,7 +15,7 @@ class BouncingEffect extends StatefulWidget {
 
 class _BouncingEffectState extends State<BouncingEffect>
     with TickerProviderStateMixin {
-  AnimationController animationController;
+  late AnimationController animationController;
   double padding = 0;
 
   @override

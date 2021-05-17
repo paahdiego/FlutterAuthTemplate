@@ -1,5 +1,5 @@
 class JWTToken {
-  String jwt;
+  String? jwt;
 
   JWTToken({
     this.jwt,

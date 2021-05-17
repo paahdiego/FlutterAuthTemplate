@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key key}) : super(key: key);
+  const SplashPage({Key? key}) : super(key: key);
   @override
   _SplashPageState createState() => _SplashPageState();
 }

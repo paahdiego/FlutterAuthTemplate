@@ -2,12 +2,12 @@ import 'package:authtemplate/core/core.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatefulWidget {
-  final Widget child;
-  final VoidCallback onPressed;
+  final Widget? child;
+  final VoidCallback? onPressed;
   final Color color, textColor;
 
   const RoundedButton({
-    Key key,
+    Key? key,
     this.child,
     this.onPressed,
     this.color = AppColors.kPrimaryColor,
@@ -20,10 +20,10 @@ class RoundedButton extends StatefulWidget {
 
 class _RoundedButtonState extends State<RoundedButton>
     with TickerProviderStateMixin {
-  AnimationController animationController;
+  late AnimationController animationController;
   double _scale = 1;
 
-  Key teste;
+  Key? teste;
 
   @override
   void initState() {
@@ -43,8 +43,8 @@ class _RoundedButtonState extends State<RoundedButton>
 
   @override
   void dispose() {
-    super.dispose();
     animationController.dispose();
+    super.dispose();
   }
 
   void _tapDown(TapDownDetails details) {
@@ -85,10 +85,10 @@ class _RoundedButtonState extends State<RoundedButton>
               foregroundColor: MaterialStateProperty.all(this.widget.textColor),
             ),
             onPressed: () {
-              widget.onPressed();
+              widget.onPressed!();
               _tapUp();
             },
-            child: this.widget.child,
+            child: this.widget.child!,
           ),
         ),
       ),

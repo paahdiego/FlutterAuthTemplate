@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 
 class AuthController extends ChangeNotifier {
   final stateNotifier = ValueNotifier<AuthState>(AuthState.showSplash);
-  bool isAuthenticated = false;
 
   AuthController() {
-    this._init();
+    this._init(4500);
   }
 
-  _init() async {
-    await Future.delayed(Duration(seconds: 5));
+  _init(int milliseconds) async {
+    await Future.delayed(Duration(milliseconds: milliseconds));
     this.stateNotifier.value = await AuthService.isAuthenticated();
     notifyListeners();
   }
@@ -18,7 +17,7 @@ class AuthController extends ChangeNotifier {
   void logout() {
     AuthService().logout();
     stateNotifier.value = AuthState.showSplash;
-    _init();
+    _init(1000);
     notifyListeners();
   }
 

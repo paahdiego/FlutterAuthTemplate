@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 class UserModel extends ChangeNotifier {
-  String userId;
-  String name;
+  String? userId;
+  String? name;
   UserModel(
     this.userId,
     this.name,

@@ -3,19 +3,19 @@ import 'package:authtemplate/core/core.dart';
 import 'package:flutter/material.dart';
 
 class RoundedInputField extends StatelessWidget {
-  final String hintText;
-  final IconData icon;
-  final ValueChanged<String> onChanged;
-  final FormFieldValidator<String> validator;
-  final TextEditingController controller;
+  final String? hintText;
+  final IconData? icon;
+  final ValueChanged<String>? onChanged;
+  final FormFieldValidator<String>? validator;
+  final TextEditingController? controller;
   final TextInputType keyboardType;
   final bool obscureText;
-  final Widget suffixIcon;
+  final Widget? suffixIcon;
   final TextInputAction textInputAction;
-  final ValueChanged<String> onFieldSubmitted;
+  final ValueChanged<String>? onFieldSubmitted;
 
   const RoundedInputField({
-    Key key,
+    Key? key,
     this.hintText,
     this.icon,
     this.onChanged,
@@ -42,7 +42,7 @@ class RoundedInputField extends StatelessWidget {
         obscureText: obscureText,
         onChanged: onChanged,
         keyboardType: keyboardType,
-        onFieldSubmitted: (_) {},
+        onFieldSubmitted: onFieldSubmitted,
         textInputAction: textInputAction,
         style: AppTextStyles.inputStyle(),
         decoration: InputDecoration(

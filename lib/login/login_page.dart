@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
   bool invisiblePassword = true;
   IconData invisiblePasswordIcon = Icons.visibility_off;
 
-  AuthController controller;
+  late AuthController controller;
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> login() async {
     try {
-      if (_formKey.currentState.validate()) {
+      if (_formKey.currentState!.validate()) {
         setState(() {
           controller.state = AuthState.loading;
         });
@@ -100,8 +100,8 @@ class _LoginPageState extends State<LoginPage> {
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return "digite o e-mail";
                     }
                     return null;
@@ -118,6 +118,9 @@ class _LoginPageState extends State<LoginPage> {
                   icon: Icons.lock,
                   controller: passController,
                   obscureText: invisiblePassword,
+                  onFieldSubmitted: (_) async {
+                    await login();
+                  },
                   suffixIcon: IconButton(
                       splashColor: AppColors.transparent,
                       icon: Icon(
@@ -137,8 +140,8 @@ class _LoginPageState extends State<LoginPage> {
                         });
                       }),
                   keyboardType: TextInputType.visiblePassword,
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return "digite a senha";
                     }
                     return null;
