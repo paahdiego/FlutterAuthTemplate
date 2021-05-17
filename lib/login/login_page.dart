@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -18,6 +21,9 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+
+  bool invisiblePassword = true;
+  IconData invisiblePasswordIcon = Icons.visibility_off;
 
   AuthController controller;
 
@@ -46,11 +52,16 @@ class _LoginPageState extends State<LoginPage> {
           });
           if (Navigator.canPop(context)) Navigator.of(context).pop();
         } catch (error) {
-          print("entrou aqui");
+          showTopSnackBar(
+            context,
+            CustomSnackBar.error(
+              backgroundColor: Colors.red,
+              message: "$error",
+            ),
+          );
           setState(() {
             controller.state = AuthState.notAuthenticated;
           });
-          //showInSnackBar('Falha ao realizar o login');
         }
       }
     } catch (e) {}
@@ -88,6 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                   icon: Icons.person,
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
                   validator: (String value) {
                     if (value.isEmpty) {
                       return "digite o e-mail";
@@ -105,7 +117,25 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: "Password",
                   icon: Icons.lock,
                   controller: passController,
-                  obscureText: true,
+                  obscureText: invisiblePassword,
+                  suffixIcon: IconButton(
+                      splashColor: AppColors.transparent,
+                      icon: Icon(
+                        invisiblePasswordIcon,
+                        color: invisiblePassword
+                            ? AppColors.deactivatedSuffixButton
+                            : AppColors.activatedSuffixButton,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          invisiblePassword = !invisiblePassword;
+                          if (invisiblePassword) {
+                            invisiblePasswordIcon = Icons.visibility_off;
+                          } else {
+                            invisiblePasswordIcon = Icons.visibility;
+                          }
+                        });
+                      }),
                   keyboardType: TextInputType.visiblePassword,
                   validator: (String value) {
                     if (value.isEmpty) {
@@ -121,18 +151,20 @@ class _LoginPageState extends State<LoginPage> {
               RoundedButton(
                 onPressed: () async {
                   await login();
-                  //Navigator.of(context).pop();
                 },
                 child: controller.state != AuthState.loading
                     ? Text(
                         "LOGIN",
-                        style: TextStyle(fontSize: 18),
+                        style: AppTextStyles.roundedButtonStyle(),
                       )
                     : SizedBox(
                         height: 20,
                         width: 20,
                         child: CircularProgressIndicator(
-                          backgroundColor: AppColors.white,
+                          backgroundColor: AppColors.kPrimaryLightColor,
+                          valueColor: new AlwaysStoppedAnimation<Color>(
+                            AppColors.kPrimaryColor,
+                          ),
                           strokeWidth: 2.5,
                         ),
                       ),
@@ -144,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {},
                 child: Text(
                   "esqueci minha senha",
-                  style: AppTextStyles.primary(14),
+                  style: AppTextStyles.textButtonStyle(),
                 ),
               ),
             ],

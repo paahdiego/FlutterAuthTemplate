@@ -5,6 +5,7 @@ import 'package:authtemplate/splash/splash_page.dart';
 import 'package:authtemplate/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:provider/provider.dart';
 
 class AppWidget extends StatefulWidget {
@@ -15,6 +16,7 @@ class AppWidget extends StatefulWidget {
 class _AppWidgetState extends State<AppWidget> {
   @override
   void initState() {
+    AppIcons.loadCache();
     super.initState();
   }
 

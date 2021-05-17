@@ -1,7 +1,8 @@
 import 'package:authtemplate/core/core.dart';
 import 'package:authtemplate/splash/widgets/bouncing_effect.dart';
-import 'package:authtemplate/welcome/welcome_page.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SplashPage extends StatefulWidget {
@@ -12,12 +13,12 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   @override
-  Widget build(BuildContext context) {
-    /* Future.delayed(Duration(seconds: 3)).then((value) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => WelcomePage()));
-    }); */
+  void initState() {
+    super.initState();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(color: AppColors.kPrimaryColor),

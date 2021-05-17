@@ -10,6 +10,9 @@ class RoundedInputField extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final bool obscureText;
+  final Widget suffixIcon;
+  final TextInputAction textInputAction;
+  final ValueChanged<String> onFieldSubmitted;
 
   const RoundedInputField({
     Key key,
@@ -18,8 +21,11 @@ class RoundedInputField extends StatelessWidget {
     this.onChanged,
     this.validator,
     this.controller,
+    this.suffixIcon,
+    this.textInputAction = TextInputAction.done,
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
+    this.onFieldSubmitted,
   }) : super(key: key);
 
   @override
@@ -36,10 +42,14 @@ class RoundedInputField extends StatelessWidget {
         obscureText: obscureText,
         onChanged: onChanged,
         keyboardType: keyboardType,
+        onFieldSubmitted: (_) {},
+        textInputAction: textInputAction,
+        style: AppTextStyles.inputStyle(),
         decoration: InputDecoration(
           icon: Icon(icon, color: AppColors.kPrimaryColor),
           hintText: hintText,
           border: InputBorder.none,
+          suffixIcon: suffixIcon,
           errorStyle: TextStyle(
             color: AppColors.kPrimaryColor,
           ),

@@ -15,15 +15,6 @@ class AuthController extends ChangeNotifier {
     notifyListeners();
   }
 
-/*
-  void setIsAuthenticated(bool value) {
-    this.isAuthenticated = value;
-    if (!value) {
-      AuthService().logout().then((value) => null);
-    }
-    notifyListeners();
-  } */
-
   void logout() {
     AuthService().logout();
     stateNotifier.value = AuthState.showSplash;
