@@ -37,7 +37,7 @@
   <p align="center">
   <img src=".github/welcome.png" alt="WelcomePage" height="500">
   <img src=".github/error.png" alt="Login Error" height="500">
-  ![](".github/demo.gif")
+  ![Demonstration](".github/demo.gif")
 
   </p>
   </br>
