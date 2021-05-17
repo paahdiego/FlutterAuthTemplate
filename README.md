@@ -35,9 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
   <p align="center">
-  <img src=".github/welcome.png" alt="WelcomePage" height="500">
-  <img src=".github/error.png" alt="Login Error" height="500">
-  <img src=".github/demo.gif" width="500" alt="Auth Demo">
+  <img src=".github/demo.gif" width="350" alt="Auth Demo">
   </p>
   </br>
 
