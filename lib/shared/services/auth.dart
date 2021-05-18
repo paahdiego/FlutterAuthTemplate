@@ -39,13 +39,10 @@ class AuthService {
 
       switch (response.statusCode) {
         case 200:
-          log(response.body);
-
           UserModel _user = UserModel.fromJson(response.body);
-          print(_user.name);
 
           JWTToken _token = JWTToken.fromJson(response.body);
-          print(3);
+
           return await setLocalUser(_user, _token);
 
         case 403:
@@ -56,7 +53,6 @@ class AuthService {
           throw ("Aconteceu um erro inesperado, tente novamente mais tarde");
       }
     } catch (e) {
-      print(e);
       throw e;
     }
   }

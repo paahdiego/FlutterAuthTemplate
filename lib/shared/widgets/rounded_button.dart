@@ -48,12 +48,10 @@ class _RoundedButtonState extends State<RoundedButton>
   }
 
   void _tapDown(TapDownDetails details) {
-    print("down");
     animationController.forward();
   }
 
   void _tapUp(/* TapUpDetails details */) {
-    print("up");
     animationController.reverse();
   }
 

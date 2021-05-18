@@ -17,6 +17,8 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   void initState() {
     AppIcons.loadCache();
+    AppImages.loadCache(context);
+
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,

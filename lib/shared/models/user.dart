@@ -18,7 +18,6 @@ class UserModel extends ChangeNotifier {
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
-    print(map);
     return UserModel(
       map['userId'],
       map['name'],
