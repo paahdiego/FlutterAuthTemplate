@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
   <p align="center">
-  <img src=".github/demo.gif" width="250" alt="Auth Demo">
+  <img src=".github/demo2.gif" width="250" alt="Auth Demo">
   </p>
   </br>
 
