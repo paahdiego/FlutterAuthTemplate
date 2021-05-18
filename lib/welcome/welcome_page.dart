@@ -1,7 +1,7 @@
 import 'package:authtemplate/core/core.dart';
 import 'package:authtemplate/login/login_page.dart';
 import 'package:authtemplate/shared/widgets/rounded_button.dart';
-import 'package:authtemplate/welcome/widgets/background.dart';
+import 'package:authtemplate/welcome/widgets/background/background.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -21,19 +21,22 @@ class _WelcomePageState extends State<WelcomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Welcome to Edu".toUpperCase(),
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 40,
+              Container(
+                margin: EdgeInsets.symmetric(
+                  vertical: dss.displayHeight * 0.05,
+                ),
+                child: Text(
+                  "WELCOME TO EDU",
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.title(dss.titleFontSize),
+                ),
               ),
               SvgPicture.asset(
                 "assets/icons/chat.svg",
                 height: dss.displayHeight * 0.45,
               ),
               SizedBox(
-                height: 50,
+                height: dss.displayHeight * 0.03,
               ),
               RoundedButton(
                 child: Text("LOGIN"),
@@ -43,7 +46,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 },
               ),
               SizedBox(
-                height: 20,
+                height: dss.displayHeight * 0.03,
               ),
               RoundedButton(
                 child: Text("SIGN UP"),

@@ -40,9 +40,11 @@ class DeviceScreenSize extends ChangeNotifier {
     //Paddings
     _paddingTop = _mediaQuery.padding.top;
     _paddingBottom = _mediaQuery.padding.bottom;
-    _defaultPadding = EdgeInsets.symmetric(horizontal: _defaultPaddingValue);
     _safeAreaPadding =
         EdgeInsets.only(top: _paddingTop, bottom: _paddingBottom);
+
+    _defaultPaddingValue = _displayWidth * 0.1;
+    _defaultPadding = EdgeInsets.symmetric(horizontal: _defaultPaddingValue);
   }
   //ScreenSize
   double get displayWidth => this._displayWidth;

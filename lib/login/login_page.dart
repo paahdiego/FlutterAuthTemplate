@@ -1,5 +1,6 @@
 import 'package:authtemplate/core/core.dart';
 import 'package:authtemplate/login/widgets/background/background.dart';
+import 'package:authtemplate/login/widgets/signup_button/signup_button.dart';
 import 'package:authtemplate/shared/controllers/auth.dart';
 import 'package:authtemplate/shared/models/login.dart';
 import 'package:authtemplate/shared/services/auth.dart';
@@ -74,142 +75,132 @@ class _LoginPageState extends State<LoginPage> {
     controller = Provider.of<AuthController>(context);
     return Scaffold(
       body: Background(
-        child: Stack(
-          children: [
-            Form(
-              key: _formKey,
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 25),
-                      child: Text(
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(
+                    vertical: dss.displayHeight * 0.05,
+                  ),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: dss.displayWidth * 0.02),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Text(
                         "LOGIN",
                         textAlign: TextAlign.center,
-                        style: AppTextStyles.title(24),
+                        style: AppTextStyles.title(dss.titleFontSize),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 20),
-                      child: SvgPicture.asset(
-                        AppIcons.login,
-                        height: dss.displayHeight * 0.35,
-                      ),
-                    ),
-                    Container(
-                      padding: dss.defaultPadding,
-                      child: RoundedInputField(
-                        hintText: "Your Email",
-                        icon: Icons.person,
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                        validator: (String? value) {
-                          if (value!.isEmpty) {
-                            return "digite o e-mail";
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      padding: dss.defaultPadding,
-                      child: RoundedInputField(
-                        hintText: "Password",
-                        icon: Icons.lock,
-                        controller: passController,
-                        obscureText: invisiblePassword,
-                        onFieldSubmitted: (_) async {
-                          await login();
-                        },
-                        suffixIcon: IconButton(
-                            splashColor: AppColors.transparent,
-                            icon: Icon(
-                              invisiblePasswordIcon,
-                              color: invisiblePassword
-                                  ? AppColors.deactivatedSuffixButton
-                                  : AppColors.activatedSuffixButton,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                invisiblePassword = !invisiblePassword;
-                                if (invisiblePassword) {
-                                  invisiblePasswordIcon = Icons.visibility_off;
-                                } else {
-                                  invisiblePasswordIcon = Icons.visibility;
-                                }
-                              });
-                            }),
-                        keyboardType: TextInputType.visiblePassword,
-                        validator: (String? value) {
-                          if (value!.isEmpty) {
-                            return "digite a senha";
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    RoundedButton(
-                      onPressed: () async {
-                        await login();
-                      },
-                      child: controller.state != AuthState.loading
-                          ? Text(
-                              "LOGIN",
-                              style: AppTextStyles.roundedButtonStyle(
-                                  dss.defaultFontSize),
-                            )
-                          : SizedBox(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(
-                                backgroundColor: AppColors.kPrimaryLightColor,
-                                valueColor: new AlwaysStoppedAnimation<Color>(
-                                  AppColors.kPrimaryColor,
-                                ),
-                                strokeWidth: 2.5,
-                              ),
-                            ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't have an Account?",
-                          style: AppTextStyles.body(dss.defaultFontSize),
+                      Positioned(
+                        left: 0,
+                        child: BackButton(
+                          color: AppColors.kPrimaryColor,
                         ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Sign up",
-                            style: AppTextStyles.textButtonStyle(
-                                dss.defaultFontSize),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    bottom: dss.displayHeight * 0.03,
+                  ),
+                  child: SvgPicture.asset(
+                    AppIcons.login,
+                    height: dss.displayHeight * 0.35,
+                  ),
+                ),
+                Container(
+                  padding: dss.defaultPadding,
+                  child: RoundedInputField(
+                    hintText: "Your Email",
+                    icon: Icons.person,
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
+                        return "digite o e-mail";
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: dss.displayHeight * 0.03,
+                ),
+                Container(
+                  padding: dss.defaultPadding,
+                  child: RoundedInputField(
+                    hintText: "Password",
+                    icon: Icons.lock,
+                    controller: passController,
+                    obscureText: invisiblePassword,
+                    onFieldSubmitted: (_) async {
+                      await login();
+                    },
+                    suffixIcon: IconButton(
+                        splashColor: AppColors.transparent,
+                        icon: Icon(
+                          invisiblePasswordIcon,
+                          color: invisiblePassword
+                              ? AppColors.deactivatedSuffixButton
+                              : AppColors.activatedSuffixButton,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            invisiblePassword = !invisiblePassword;
+                            if (invisiblePassword) {
+                              invisiblePasswordIcon = Icons.visibility_off;
+                            } else {
+                              invisiblePasswordIcon = Icons.visibility;
+                            }
+                          });
+                        }),
+                    keyboardType: TextInputType.visiblePassword,
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
+                        return "digite a senha";
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: dss.displayHeight * 0.03,
+                ),
+                RoundedButton(
+                  onPressed: () async {
+                    await login();
+                  },
+                  child: controller.state != AuthState.loading
+                      ? Text(
+                          "LOGIN",
+                          style: AppTextStyles.roundedButtonStyle(
+                              dss.defaultFontSize),
+                        )
+                      : SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(
+                            backgroundColor: AppColors.kPrimaryLightColor,
+                            valueColor: new AlwaysStoppedAnimation<Color>(
+                              AppColors.kPrimaryColor,
+                            ),
+                            strokeWidth: 2.5,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
                 ),
-              ),
+                SignUpButton(
+                  onPressed: () {},
+                ),
+              ],
             ),
-            Positioned(
-              top: 10,
-              left: 10,
-              child: BackButton(
-                color: AppColors.kPrimaryColor,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
