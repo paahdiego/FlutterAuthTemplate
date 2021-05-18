@@ -23,8 +23,7 @@ class _AppWidgetState extends State<AppWidget> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.blue));
+
     super.initState();
   }
 
